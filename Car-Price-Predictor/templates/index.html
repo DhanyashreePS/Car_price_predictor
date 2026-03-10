@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Car Price Predictor</title>
+
+<style>
+
+body{
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg,#4facfe,#00f2fe);
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.container{
+    background:white;
+    padding:30px;
+    width:400px;
+    border-radius:12px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+h1{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+label{
+    font-weight:bold;
+}
+
+input{
+    width:100%;
+    padding:10px;
+    margin-top:5px;
+    margin-bottom:15px;
+    border-radius:6px;
+    border:1px solid #ccc;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    background:#4facfe;
+    border:none;
+    color:white;
+    font-size:16px;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#2c8df4;
+}
+
+.result{
+    margin-top:20px;
+    padding:10px;
+    text-align:center;
+    font-weight:bold;
+    color:green;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Car Price Predictor</h1>
+
+<form action="/predict" method="post">
+
+<label>Company</label>
+<input type="text" name="company" placeholder="e.g. Hyundai">
+
+<label>Year</label>
+<input type="number" name="year" placeholder="e.g. 2018">
+
+<label>Kilometers Driven</label>
+<input type="number" name="kms" placeholder="e.g. 45000">
+
+<label>Fuel Type</label>
+<input type="text" name="fuel" placeholder="Petrol / Diesel">
+
+<button type="submit">Predict Price</button>
+
+</form>
+
+{% if prediction_text %}
+<div class="result">
+{{ prediction_text }}
+</div>
+{% endif %}
+
+</div>
+
+</body>
+</html>
